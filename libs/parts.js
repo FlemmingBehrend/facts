@@ -21,13 +21,27 @@ exports.devServer = function(options) {
     };
 };
 
+exports.setupHtml = function (paths) {
+    return {
+        module: {
+            loaders: [
+                {
+                    test: /\.html$/,
+                    loader: 'raw',
+                    include: paths
+                }
+            ]
+        }
+    }
+};
+
 exports.setupCSS = function(paths) {
     return {
         module: {
             loaders: [
                 {
-                    test: /\.css$/,
-                    loaders: ['style', 'css'],
+                    test: /\.css$|\.scss$/,
+                    loaders: ['style', 'css', 'sass'],
                     include: paths
                 }
             ]
@@ -63,8 +77,8 @@ exports.extractCSS = function(paths) {
             loaders: [
                 // Extract CSS during build
                 {
-                    test: /\.css$/,
-                    loader: ExtractTextPlugin.extract('style', 'css'),
+                    test: /\.css$|\.scss$/,
+                    loader: ExtractTextPlugin.extract('style', 'css', 'sass'),
                     include: paths
                 }
             ]

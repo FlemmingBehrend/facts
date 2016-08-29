@@ -1,6 +1,70 @@
 body {
-    background: cornsilk;
+    padding: 0px;
+    margin: 0px;
+
 }
-.tester {
-    font-size: x-large;
+
+h1 {
+    padding: 0px;
+    margin: 0px;
+    position: relative;
+    height: 100vh;
+    width: 100vm;
+    font-family: raleway, sans-serif;
+    font-size: 150px;
+    z-index: 1;
+    background: black;
+    color: white;
+    text-align: center;
+    mix-blend-mode: multiply;
+}
+
+#gradation {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, blue, #b0dea6);
+}
+
+.box {
+    position: absolute;
+    border-radius: 50%;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(90deg, lightgreen, blue) center center;
+    background-size: 100vw 100vh;
+}
+
+.b1 {
+    top: 0;
+    animation: lr 5s ease-in-out infinite alternate;
+}
+
+.b2 {
+    bottom: 0;
+    animation: rl 5s ease-in-out infinite alternate;
+}
+
+@keyframes lr {
+    0% {
+        left: 0%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+@keyframes rl {
+    0% {
+        right: 0%;
+    }
+
+    100% {
+        right: 100%;
+    }
 }
